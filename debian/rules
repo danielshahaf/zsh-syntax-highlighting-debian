@@ -1,3 +1,9 @@
 #!/usr/bin/make -f
+NAME=zsh-syntax-highlighting
+PREFIX=/usr
+
+override_dh_auto_install:
+	make -s install DESTDIR=$(CURDIR)/debian/$(NAME) PREFIX=$(PREFIX)
+
 %:
 	dh $@
