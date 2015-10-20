@@ -11,10 +11,6 @@ Copyright: 2015, Carsten Hey
            2015, Daniel Shahaf
 License: BSD-3-clause
 
-Files: debian/patches/*
-Copyright: 2010-2015, zsh-syntax-highlighting contributors
-License: BSD-3-clause
-
 License: BSD-3-clause
  All rights reserved.
  .
