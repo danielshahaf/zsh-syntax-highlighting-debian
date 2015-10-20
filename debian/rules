@@ -2,6 +2,9 @@
 NAME=zsh-syntax-highlighting
 PREFIX=/usr
 
+# TODO: 'make install' will set .revision-hash to the revision number
+# of the debian branch, not of the upstream branch (see source/options).
+# Is that a problem?
 override_dh_auto_install:
 	make -s install DESTDIR=$(CURDIR)/debian/$(NAME) PREFIX=$(PREFIX)
 
