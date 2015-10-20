@@ -1,6 +1,3 @@
-up to 9a3c7d19609ca8c426a54b252b8509faf63b0bd5
-
-
 # Changes in version 0.3.0
 
 
@@ -79,12 +76,16 @@ up to 9a3c7d19609ca8c426a54b252b8509faf63b0bd5
 
 - `$?` propagated correctly to wrapped widgets
 
+- don't leak $REPLY into global scope
+
 
 ## Developer-visible changes:
 
 - added makefile with `install` and `test` targets
 
 - set `warn_create_global` internally
+
+- document release process
 
 
 
