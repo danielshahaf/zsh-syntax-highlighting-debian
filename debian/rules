@@ -7,7 +7,7 @@ PREFIX=/usr
 # Is that a problem?
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=$(PREFIX)
-	find "$(CURDIR)/debian/$(NAME)" -name test-data -exec rm -rf -- {} +
+	find debian/$(NAME) -name test-data -exec rm -rf -- {} +
 
 %:
 	dh $@
