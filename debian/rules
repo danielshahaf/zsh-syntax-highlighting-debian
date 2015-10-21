@@ -5,6 +5,9 @@ PREFIX=/usr
 # TODO: 'make install' will set .revision-hash to the revision number
 # of the debian branch, not of the upstream branch (see source/options).
 # Is that a problem?
+# TODO: the build is not reproducible: .revision-hash is set to $(git rev-parse
+# HEAD) when building from the package's git, but to $(git rev-parse 0.3.0)
+# when building outside git.
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=$(PREFIX)
 	find debian/$(NAME) -name test-data -exec rm -rf -- {} +
