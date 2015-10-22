@@ -2,9 +2,10 @@
 NAME=zsh-syntax-highlighting
 PREFIX=/usr
 
-# TODO: 'make install' will set .revision-hash to the revision number
+# Note: 'make install' will set .revision-hash to the revision number
 # of the debian branch, not of the upstream branch (see source/options).
-# Is that a problem?
+# This is deliberate.
+#
 # TODO: the build is not reproducible: .revision-hash is set to $(git rev-parse
 # HEAD) when building from the package's git, but to $(git rev-parse 0.3.0)
 # when building outside git.
