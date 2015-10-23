@@ -2,6 +2,9 @@ Subject: Fix test failure when $HOME is undefined
 From: Daniel Shahaf <danielsh@apache.org>
 Bug: https://github.com/zsh-users/zsh-syntax-highlighting/issues/216
 Last-Update: 2015-10-21
+
+This patch is obsoleted by upstream commit b2ac98b98150b097e9a3dbea8a7b02b4a5cfd0bd
+(post-0.3.0).
 ---
 
 Index: z-sy-h/tests/test-highlighting.zsh
