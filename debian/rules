@@ -6,7 +6,7 @@ PREFIX=/usr
 # of the debian branch, not of the upstream branch (see source/options).
 # This is deliberate.
 
-# TODO: the build is not reproducible: .revision-hash is set to $(git rev-parse
+# TODO: the build is not reproducible: .revision-hash is set¹ to $(git rev-parse
 # HEAD) when building from the package's git, but to $(cat .revision-hash)
 # when building outside git — which is normally the contents of .revision-hash
 # in the upstream tarball.
@@ -18,7 +18,9 @@ PREFIX=/usr
 # The "outside" build runs only 'dpkg-source' inside the package's git, and
 # that (for the "3.0 (quilt)" source/format) in turn only runs the quilt
 # series.  Ideally, somehow running the quilt series will patch .revision-hash
-# with the hash of the package's git repository revision being built...
+# with the hash of the package's git repository's revision being built...
+#
+# ¹ By the 'install' target in upstream's Makefile.
 
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=$(PREFIX)
