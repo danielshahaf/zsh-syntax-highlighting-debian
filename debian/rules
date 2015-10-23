@@ -15,9 +15,9 @@ PREFIX=/usr
 # Building twice outside git will also give the same results both times;
 # but the first pair will be different from the second pair.
 #
-# The "outside" build runs only 'dpkg-source' inside the package's git, and
-# that (for the "3.0 (quilt)" source/format) in turn only runs the quilt
-# series.  Ideally, somehow running the quilt series will patch .revision-hash
+# The "outside" build runs only 'dpkg-source' and 'clean' inside the package's git, and
+# the former (for the "3.0 (quilt)" source/format) in turn only runs the quilt
+# series.  Ideally, somehow generating the source package will patch .revision-hash
 # with the hash of the package's git repository's revision being built...
 #
 # ¹ By the 'install' target in upstream's Makefile.
