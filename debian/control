@@ -7,7 +7,9 @@ Build-Depends:
 	debhelper (>= 9),
 	zsh,
 Standards-Version: 3.9.6
-#TODO add vcs related fields
+# TODO switch vcs to alioth like pkg-zsh
+Vcs-Browser: https://github.com/zsh-users/zsh-syntax-highlighting/
+Vcs-Git: git://github.com/danielshahaf/zsh-syntax-highlighting-debian
 Homepage: https://github.com/zsh-users/zsh-syntax-highlighting/
 
 Package: zsh-syntax-highlighting
