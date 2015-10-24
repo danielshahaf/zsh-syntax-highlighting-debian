@@ -1,4 +1,4 @@
-zsh-syntax-highlighting (0.3.0-1) UNRELEASED; urgency=low
+zsh-syntax-highlighting (0.3.0-1~mentors1) UNRELEASED; urgency=low
 
   * Initial release. (Closes: #802758)
 
