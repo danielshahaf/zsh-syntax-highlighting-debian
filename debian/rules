@@ -22,6 +22,12 @@ PREFIX=/usr
 #
 # ¹ By the 'install' target in upstream's Makefile.
 
+# To solve all this, just make the .revision-hash file contain the debian tag
+# name from the debian package's git repository.  The tags will be named
+# "debian/$(dpkg-parsechangelog -SVersion)" and that will be a valid
+# gitrevisions(7) expression (a tag name) that also unambiguously identifies
+# the vendor.
+
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=$(PREFIX)
 	find debian/$(NAME) -name test-data -exec rm -rf -- {} +
