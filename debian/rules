@@ -2,32 +2,6 @@
 NAME=zsh-syntax-highlighting
 PREFIX=/usr
 
-# Note: 'make install' will set .revision-hash to the revision number
-# of the debian branch, not of the upstream branch (see source/options).
-# This is deliberate.
-
-# TODO: the build is not reproducible: .revision-hash is set¹ to $(git rev-parse
-# HEAD) when building from the package's git, but to $(cat .revision-hash)
-# when building outside git — which is normally the contents of .revision-hash
-# in the upstream tarball.
-#
-# Building twice inside git will give the same results both times;
-# Building twice outside git will also give the same results both times;
-# but the first pair will be different from the second pair.
-#
-# The "outside" build runs only 'dpkg-source' and 'clean' inside the package's git, and
-# the former (for the "3.0 (quilt)" source/format) in turn only runs the quilt
-# series.  Ideally, somehow generating the source package will patch .revision-hash
-# with the hash of the package's git repository's revision being built...
-#
-# ¹ By the 'install' target in upstream's Makefile.
-
-# To solve all this, just make the .revision-hash file contain the debian tag
-# name from the debian package's git repository.  The tags will be named
-# "debian/$(dpkg-parsechangelog -SVersion)" and that will be a valid
-# gitrevisions(7) expression (a tag name) that also unambiguously identifies
-# the vendor.
-
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=$(PREFIX)
 	find debian/$(NAME) -name test-data -exec rm -rf -- {} +

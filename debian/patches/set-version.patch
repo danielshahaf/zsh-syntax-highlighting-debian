@@ -1,29 +1,59 @@
 Description: Set $ZSH_HIGHLIGHT_VERSION to the package version
-  The $(shell ...) invocations are taken from debian/rules of the
+  The first two $(shell ...) invocations are taken from debian/rules of the
   zsh package[1] with permission.
  .
  [1] git://anonscm.debian.org/collab-maint/zsh.git
 Author: Daniel Shahaf <danielsh@apache.org>
 Forwarded: not-needed
-Last-Update: 2015-10-22
+Last-Update: 2015-10-28
+
+This patch implements setting .revision-hash to a valid gitrevisions(7)
+expression identifying the source control revision of the packaging (and, by
+extension, of zsh-syntax-highlighting itself).  This is needed to make
+generation of binary packages independent of whether or not the build is
+occurring within the packaging's git repository, and to ensure .revision-hash
+always reports a revision pertaining to the same source (the packaging source,
+rather than upstream's).
 ---
 --- a/Makefile
 +++ b/Makefile
-@@ -3,6 +3,8 @@
+@@ -3,6 +3,13 @@
  INSTALL?=install -c
  PREFIX?=/usr/local
  SHARE_DIR=$(DESTDIR)$(PREFIX)/share/$(NAME)
 +DPKG_VENDOR=$(shell dpkg-vendor --query vendor | env LC_ALL=C tr A-Z a-z | env LC_ALL=C tr -d -c '[:alnum:]')
 +DCH_VERSION=$(shell dpkg-parsechangelog -SVersion)
++ifeq "$(shell dpkg-parsechangelog -SDistribution)" "UNRELEASED"
++DOTVERSION_SUFFIX="+unreleased"
++else
++DOTVERSION_SUFFIX=""
++endif
  
  # Have the default target do nothing.
  all:
-@@ -11,6 +13,8 @@
+@@ -11,11 +18,20 @@
  install:
  	$(INSTALL) -d $(SHARE_DIR)
  	cp -r .version zsh-syntax-highlighting.zsh highlighters $(SHARE_DIR)
-+	printf "%s_%s" "$(DCH_VERSION)" "$(DPKG_VENDOR)" \
+-	if [ x"true" = x"`git rev-parse --is-inside-work-tree 2>/dev/null`" ]; then \
+-		git rev-parse HEAD; \
+-	else \
+-		cat .revision-hash; \
+-	fi > $(SHARE_DIR)/.revision-hash
++	printf "%s_%s%s\n" "$(DCH_VERSION)" "$(DPKG_VENDOR)" "$(DOTVERSION_SUFFIX)" \
 +		> $(SHARE_DIR)/.version
- 	if [ x"true" = x"`git rev-parse --is-inside-work-tree 2>/dev/null`" ]; then \
- 		git rev-parse HEAD; \
- 	else \
++ifeq "$(shell dpkg-parsechangelog -SDistribution)" "UNRELEASED"
++# Unreleased means we're inside the packaging's git repository; assert that:
++	[ x"true" = x"`git rev-parse --is-inside-work-tree 2>/dev/null`" ]
++	git rev-parse HEAD > $(SHARE_DIR)/.revision-hash
++else
++# We're building a released package.  That means git might not be available,
++# but also means the code we are building has been tagged.  That allows us
++# to set .revision-hash to a valid gitrevisions(7) expression: we set it to
++# "debian/0.3.0-1", the tag name of the release we are building.
++	printf "%s/%s\n" "$(DPKG_VENDOR)" "$(DCH_VERSION)" \
++		> $(SHARE_DIR)/.revision-hash
++endif
+ 
+ test:
+ 	@result=0; \
