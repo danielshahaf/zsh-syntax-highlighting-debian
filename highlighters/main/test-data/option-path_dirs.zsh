@@ -27,13 +27,15 @@
 # vim: ft=zsh sw=2 ts=2 et
 # -------------------------------------------------------------------------------------------------
 
-BUFFER='>/tmp >/tmp sudo echo >/tmp foo'
+## setup
+setopt PATH_DIRS
+mkdir -p foo/bar
+touch foo/bar/testing-issue-228
+chmod  +x foo/bar/testing-issue-228
+path+=( "$PWD"/foo )
+
+BUFFER='bar/testing-issue-228'
 
 expected_region_highlight=(
-  "2  5  $ZSH_HIGHLIGHT_STYLES[path]"       # /tmp
-  "8  11 $ZSH_HIGHLIGHT_STYLES[path]"       # /tmp
-  "13 16 $ZSH_HIGHLIGHT_STYLES[precommand]" # sudo
-  "18 21 $ZSH_HIGHLIGHT_STYLES[builtin]"    # echo
-  "24 27 $ZSH_HIGHLIGHT_STYLES[path]"       # /tmp
-  "29 31 $ZSH_HIGHLIGHT_STYLES[default]"    # foo
+  "1 21 $ZSH_HIGHLIGHT_STYLES[command]" # bar/testing-issue-228
 )

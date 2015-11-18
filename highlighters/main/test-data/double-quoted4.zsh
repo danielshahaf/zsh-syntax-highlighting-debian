@@ -27,13 +27,10 @@
 # vim: ft=zsh sw=2 ts=2 et
 # -------------------------------------------------------------------------------------------------
 
-BUFFER='>/tmp >/tmp sudo echo >/tmp foo'
+BUFFER=': "${foo}bar"'
 
 expected_region_highlight=(
-  "2  5  $ZSH_HIGHLIGHT_STYLES[path]"       # /tmp
-  "8  11 $ZSH_HIGHLIGHT_STYLES[path]"       # /tmp
-  "13 16 $ZSH_HIGHLIGHT_STYLES[precommand]" # sudo
-  "18 21 $ZSH_HIGHLIGHT_STYLES[builtin]"    # echo
-  "24 27 $ZSH_HIGHLIGHT_STYLES[path]"       # /tmp
-  "29 31 $ZSH_HIGHLIGHT_STYLES[default]"    # foo
+  "3 3 $ZSH_HIGHLIGHT_STYLES[double-quoted-argument]" # "
+  "4 9 $ZSH_HIGHLIGHT_STYLES[dollar-double-quoted-argument]" # ${foo}
+  "10 13 $ZSH_HIGHLIGHT_STYLES[double-quoted-argument]" # bar"
 )
