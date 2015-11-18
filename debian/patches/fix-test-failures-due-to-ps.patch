@@ -1,0 +1,29 @@
+Description: Fix test failures due to 'ps' missing from build chroot
+ The testsuite assumes (( $+commands[ps] == 1 )).
+Author: Daniel Shahaf <danielsh@apache.org>
+Forwarded: no
+Last-Update: 2015-11-28
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/highlighters/main/test-data/multiple-redirections.zsh
++++ b/highlighters/main/test-data/multiple-redirections.zsh
+@@ -27,7 +27,7 @@
+ # vim: ft=zsh sw=2 ts=2 et
+ # -------------------------------------------------------------------------------------------------
+ 
+-BUFFER='ps aux | grep java | sort | uniq | tail | head'
++BUFFER='ls aux | grep java | sort | uniq | tail | head'
+ 
+ expected_region_highlight=(
+   "1  2  $ZSH_HIGHLIGHT_STYLES[command]" # ps
+--- a/highlighters/main/test-data/simple-redirection.zsh
++++ b/highlighters/main/test-data/simple-redirection.zsh
+@@ -27,7 +27,7 @@
+ # vim: ft=zsh sw=2 ts=2 et
+ # -------------------------------------------------------------------------------------------------
+ 
+-BUFFER='ps aux | grep java'
++BUFFER='ls aux | grep java'
+ 
+ expected_region_highlight=(
+   "1  2  $ZSH_HIGHLIGHT_STYLES[command]" # ps
