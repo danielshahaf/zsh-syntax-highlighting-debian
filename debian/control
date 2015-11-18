@@ -8,7 +8,7 @@ Build-Depends:
 	zsh,
 Standards-Version: 3.9.6
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-zsh/zsh-syntax-highlighting.git/
-Vcs-Git: git://anonscm.debian.org/git/pkg-zsh/zsh-syntax-highlighting.git
+Vcs-Git: git://anonscm.debian.org/pkg-zsh/zsh-syntax-highlighting.git
 Homepage: https://github.com/zsh-users/zsh-syntax-highlighting/
 
 Package: zsh-syntax-highlighting
