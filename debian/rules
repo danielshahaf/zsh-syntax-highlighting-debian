@@ -2,9 +2,15 @@
 NAME=zsh-syntax-highlighting
 PREFIX=/usr
 
+# Remove COPYING.md as duplicate of /usr/share/doc/.../copyright
 override_dh_auto_install:
 	dh_auto_install -- PREFIX=$(PREFIX)
-	find debian/$(NAME) -name test-data -exec rm -rf -- {} +
+	rm debian/$(NAME)/usr/share/doc/zsh-syntax-highlighting/COPYING.md
+
+# Remove 'changelog.md' which both upstream and debhelper install to different names
+override_dh_installchangelogs:
+	dh_installchangelogs
+	rm debian/$(NAME)/usr/share/doc/$(NAME)/changelog.md
 
 %:
 	dh $@

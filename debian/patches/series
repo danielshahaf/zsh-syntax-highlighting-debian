@@ -1,2 +1,2 @@
 set-version.patch
-set-HOME-in-tests.patch
+fix-test-failures-due-to-ps.patch

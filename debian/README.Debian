@@ -5,5 +5,5 @@ To use zsh-syntax-highlighting, add this line to your ~/.zshrc:
     source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 That line must be at the end of the .zshrc file.
 
-See /usr/share/zsh-syntax-highlighting/highlighters/README.md for documentation
+See /usr/share/doc/zsh-syntax-highlighting/highlighters/all.md for documentation
 on enabling non-default highlighters and changing highlighting styles.
