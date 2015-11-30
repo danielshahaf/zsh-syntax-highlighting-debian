@@ -1,5 +1,5 @@
-zsh-syntax-highlighting (0.4.0-1~mentors2) UNRELEASED; urgency=low
+zsh-syntax-highlighting (0.4.0-1) unstable; urgency=low
 
   * Initial release. (Closes: #802758)
 
- -- Daniel Shahaf <danielsh@apache.org>  Sat, 28 Nov 2015 01:14:30 +0000
+ -- Daniel Shahaf <danielsh@apache.org>  Mon, 30 Nov 2015 05:54:11 +0000
