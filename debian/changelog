@@ -1,7 +1,6 @@
 zsh-syntax-highlighting (0.4.0-2) UNRELEASED; urgency=medium
 
   * Declare 'Enhances: zsh'.
-  * Support Multi-Arch.  Thanks to Elrond.
 
  -- Daniel Shahaf <danielsh@apache.org>  Mon, 30 Nov 2015 06:24:38 +0000
 
