@@ -1,4 +1,4 @@
-zsh-syntax-highlighting (0.5.0-1) UNRELEASED; urgency=medium
+zsh-syntax-highlighting (0.5.0-1~git) UNRELEASED; urgency=medium
 
   * New upstream release.
   * Packaging changes:
