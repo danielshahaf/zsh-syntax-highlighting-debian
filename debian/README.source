@@ -1,0 +1,4 @@
+The `_origtar` target in debian/rules creates an orig.tar.xz tarball from the
+upstream git tag, which is stored in this repository too.
+
+Its advantage over uscan is that it verifies the upstream signature.
