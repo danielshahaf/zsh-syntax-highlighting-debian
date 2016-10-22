@@ -1,3 +1,9 @@
+zsh-syntax-highlighting (0.6.0-1~git) UNRELEASED; urgency=medium
+
+  * 
+
+ -- Daniel Shahaf <danielsh@apache.org>  Sat, 22 Oct 2016 21:33:21 +0000
+
 zsh-syntax-highlighting (0.5.0-1) unstable; urgency=medium
 
   * New upstream release.
