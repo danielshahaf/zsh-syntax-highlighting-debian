@@ -1,11 +1,11 @@
-zsh-syntax-highlighting (0.5.0-1~git) UNRELEASED; urgency=medium
+zsh-syntax-highlighting (0.5.0-1) unstable; urgency=medium
 
   * New upstream release.
   * Packaging changes:
     - Bump Standards-Version to 3.9.8 (no changes needed).
     - d/control: Use secure protocol (https) for Vcs-Git.
 
- -- Daniel Shahaf <danielsh@apache.org>  Sat, 06 Feb 2016 11:07:08 +0000
+ -- Daniel Shahaf <danielsh@apache.org>  Sat, 22 Oct 2016 20:18:11 +0000
 
 zsh-syntax-highlighting (0.4.1-1) unstable; urgency=medium
 
