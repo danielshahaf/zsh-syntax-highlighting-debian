@@ -15,7 +15,7 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 +BUFFER='ls aux | grep java | sort | uniq | tail | head'
  
  expected_region_highlight=(
-   "1  2  $ZSH_HIGHLIGHT_STYLES[command]" # ps
+   "1  2  command" # ps
 --- a/highlighters/main/test-data/simple-redirection.zsh
 +++ b/highlighters/main/test-data/simple-redirection.zsh
 @@ -27,7 +27,7 @@
@@ -26,4 +26,4 @@ This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
 +BUFFER='ls aux | grep java'
  
  expected_region_highlight=(
-   "1  2  $ZSH_HIGHLIGHT_STYLES[command]" # ps
+   "1  2  command" # ps
