@@ -1,6 +1,8 @@
 zsh-syntax-highlighting (0.6.0-1~git) UNRELEASED; urgency=medium
 
-  * 
+  * New upstream release.
+    - [upstream 2dce602727d7] Aliases in the calling scope are no longer expanded.
+      (Closes: #842994)
 
  -- Daniel Shahaf <danielsh@apache.org>  Sat, 22 Oct 2016 21:33:21 +0000
 
